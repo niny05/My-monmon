@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mia 💘</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #a1c4fd);
+  display: flex;
+  justify-content: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 { font-size: 42px; }
+
+.card {
+  background: rgba(255,255,255,0.15);
+  padding: 25px;
+  border-radius: 25px;
+  margin: 25px 0;
+  backdrop-filter: blur(10px);
+  animation: fade 1s ease;
+}
+
+@keyframes fade {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1;}
+}
+
+p { font-size: 20px; }
+
+/* BOTONES */
+button {
+  background: #ff4d6d;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+  color: white;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover { transform: scale(1.1); }
+
+#noBtn { position: absolute; }
+
+/* IMÁGENES */
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+/* IFRAME */
+iframe {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* TEXTO ESCRITURA */
+#type {
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Para Mia 💖</h1>
+
+<div class="card">
+<p id="type"></p>
+</div>
+
+<div class="card">
+<h2>🎶 Nuestra playlist</h2>
+<iframe src="https://open.spotify.com/embed/playlist/48qamkiCcMsVYicVDPI0x5" height="380"></iframe>
+</div>
+
+<div class="card">
+<h2>📄 Para ti</h2>
+<iframe src="https://publuu.com/flip-book/1078701/2404035" height="450"></iframe>
+</div>
+
+<div class="card">
+<h2>💞 Us?</h2>
+<img src="https://i.pinimg.com/736x/7f/9d/cc/7f9dcc8b88c40a45e98a2f4a9a97b7c1.jpg">
+<img src="https://i.pinimg.com/736x/ae/0c/62/ae0c62fdde0e98c8c5f7f6cb0f7c1b2d.jpg">
+<p>Se siente como nosotros… 😏💘</p>
+</div>
+
+<div class="card">
+<h2>💌 Última pregunta...</h2>
+<p>¿Quieres ser mi novia? 🥺💘</p>
+
+<button onclick="si()">Sí 💖</button>
+<button id="noBtn" onmouseover="mover()">No 😔</button>
+</div>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="cancion">
+<source src="amarrame.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// TEXTO EFECTO ESCRITURA
+const texto = "Mia... no planeaba sentir esto, pero ahora ya no te quiero solo en pensamientos... te quiero en mi vida 💘";
+let i = 0;
+
+function escribir(){
+  if(i < texto.length){
+    document.getElementById("type").innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(escribir, 40);
+  }
+}
+escribir();
+
+// BOTÓN NO HUYE
+function mover(){
+  let x = Math.random() * window.innerWidth - 100;
+  let y = Math.random() * window.innerHeight - 50;
+  document.getElementById("noBtn").style.left = x + "px";
+  document.getElementById("noBtn").style.top = y + "px";
+}
+
+// RESPUESTA FINAL
+function si(){
+  document.getElementById("cancion").play();
+
+  alert("Sabía que dirías que sí 😏💘 ahora eres mía…");
+
+  setTimeout(() => {
+    alert("Cúrame… enfermame… de a poco, poco a poco 💘");
+  }, 2000);
+}
+
+</script>
+
+</body>
+</html>
